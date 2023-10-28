@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="parkingstyle.css">
+    <link rel="icon" type="image/x-icon" href="parking_car_icon_180135.ico">
+    <title>Find My Spot | Billing</title>
+    <script>
+        function calculatePrice() {
+            // Get selected parking location and parking duration
+            var location = document.getElementById("parkingLocation").value;
+            var duration = parseInt(document.getElementById("parkingDuration").value);
+
+            // Define prices for different parking locations
+            var prices = {
+                "location1": 20.00, // Price per hour for location 1
+                "location2": 50.00, // Price per hour for location 2
+                "location3": 25.00,  // Price per hour for location 3
+                "location4": 10.00  // Price per hour for location 4
+
+            };
+
+            // Calculate the final price
+            var price = prices[location] * duration;
+
+            // Display the calculated price
+            document.getElementById("finalPrice").innerHTML = "Total Price: ₹" + price;
+        }
+    </script>
+
+</head>
+
+<body>
+    <img class="img" src="fms.png">
+    <h1>Parking Bill Generator</h1>
+    <br>
+    <div class="parkingLocation">Select Parking Location:</div>
+    <select id="parkingLocation">
+        <option value="location1">IIIT Sricity</option>
+        <option value="location2">Isuzu Motors Pvt.Ltd</option>
+        <option value="location3">IFMR Krea</option>
+        <option value="location4">Palmyra Parking spot</option>
+
+    </select>
+    <br>
+    <div class="parkingDuration">Enter Duration of Parking (hours):</div>
+    <input type="number" id="parkingDuration" min="1" required>
+    <br>
+    <button onclick="calculatePrice()">Calculate Price</button>
+    <p id="finalPrice"></p>
+    <br>
+    <button class="pay"><b>Pay</b></button>
+    <button class="close"><b>Close</b></button>
+
+</body>
+
+</html>
